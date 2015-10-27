@@ -288,42 +288,42 @@ platform_zero: $(GAMMADIR)/make/$(OSNAME)/platform_zero.in
 
 $(TARGETS_C2):  $(SUBDIRS_C2)
 	cd $(OSNAME)_$(BUILDARCH)_compiler2/$@ && $(MAKE) $(MFLAGS)
-	cd $(OSNAME)_$(BUILDARCH)_compiler2/$@ && ./test_gamma
+	cd $(OSNAME)_$(BUILDARCH)_compiler2/$@ && echo "disable test_gamma"
 ifdef INSTALL
 	cd $(OSNAME)_$(BUILDARCH)_compiler2/$@ && $(MAKE) $(MFLAGS) install
 endif
 
 $(TARGETS_TIERED):  $(SUBDIRS_TIERED)
 	cd $(OSNAME)_$(BUILDARCH)_tiered/$(patsubst %tiered,%,$@) && $(MAKE) $(MFLAGS)
-	cd $(OSNAME)_$(BUILDARCH)_tiered/$(patsubst %tiered,%,$@) && ./test_gamma
+	cd $(OSNAME)_$(BUILDARCH)_tiered/$(patsubst %tiered,%,$@) && echo "disable test_gamma"
 ifdef INSTALL
 	cd $(OSNAME)_$(BUILDARCH)_tiered/$(patsubst %tiered,%,$@) && $(MAKE) $(MFLAGS) install
 endif
 
 $(TARGETS_C1):  $(SUBDIRS_C1)
 	cd $(OSNAME)_$(BUILDARCH)_compiler1/$(patsubst %1,%,$@) && $(MAKE) $(MFLAGS)
-	cd $(OSNAME)_$(BUILDARCH)_compiler1/$(patsubst %1,%,$@) && ./test_gamma
+	cd $(OSNAME)_$(BUILDARCH)_compiler1/$(patsubst %1,%,$@) && echo "disable test_gamma"
 ifdef INSTALL
 	cd $(OSNAME)_$(BUILDARCH)_compiler1/$(patsubst %1,%,$@) && $(MAKE) $(MFLAGS) install
 endif
 
 $(TARGETS_CORE):  $(SUBDIRS_CORE)
 	cd $(OSNAME)_$(BUILDARCH)_core/$(patsubst %core,%,$@) && $(MAKE) $(MFLAGS)
-	cd $(OSNAME)_$(BUILDARCH)_core/$(patsubst %core,%,$@) && ./test_gamma
+	cd $(OSNAME)_$(BUILDARCH)_core/$(patsubst %core,%,$@) && echo "disable test_gamma"
 ifdef INSTALL
 	cd $(OSNAME)_$(BUILDARCH)_core/$(patsubst %core,%,$@) && $(MAKE) $(MFLAGS) install
 endif
 
 $(TARGETS_ZERO):  $(SUBDIRS_ZERO)
 	cd $(OSNAME)_$(VARIANTARCH)_zero/$(patsubst %zero,%,$@) && $(MAKE) $(MFLAGS)
-	cd $(OSNAME)_$(VARIANTARCH)_zero/$(patsubst %zero,%,$@) && ./test_gamma
+	cd $(OSNAME)_$(VARIANTARCH)_zero/$(patsubst %zero,%,$@) && echo "disable test_gamma"
 ifdef INSTALL
 	cd $(OSNAME)_$(VARIANTARCH)_zero/$(patsubst %zero,%,$@) && $(MAKE) $(MFLAGS) install
 endif
 
 $(TARGETS_SHARK):  $(SUBDIRS_SHARK)
 	cd $(OSNAME)_$(VARIANTARCH)_shark/$(patsubst %shark,%,$@) && $(MAKE) $(MFLAGS)
-	cd $(OSNAME)_$(VARIANTARCH)_shark/$(patsubst %shark,%,$@) && ./test_gamma
+	cd $(OSNAME)_$(VARIANTARCH)_shark/$(patsubst %shark,%,$@) && echo "disable test_gamma"
 ifdef INSTALL
 	cd $(OSNAME)_$(VARIANTARCH)_shark/$(patsubst %shark,%,$@) && $(MAKE) $(MFLAGS) install
 endif
@@ -371,3 +371,4 @@ include $(GAMMADIR)/make/cscope.make
 .PHONY: all compiler1 compiler2 core zero shark
 .PHONY: clean clean_compiler1 clean_compiler2 clean_core clean_zero clean_shark docs clean_docs
 .PHONY: checks check_os_version check_j2se_version
+
